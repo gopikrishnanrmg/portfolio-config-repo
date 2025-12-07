@@ -1,0 +1,24 @@
+server:
+  port: 8887
+
+spring:
+  application:
+    name: portfolio-service
+
+  datasource:
+    url: jdbc:h2:mem:portfolio_dev;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+
+storage:
+  base-url: http://${DEV_HOST:localhost}:8887/api/v1/files
+
