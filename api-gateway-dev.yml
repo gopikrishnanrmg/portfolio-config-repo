@@ -1,0 +1,33 @@
+server:
+  port: 8887
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: portfolio-service
+          uri: lb://portfolio-service
+          predicates:
+            - Path=/portfolio/**
+        - id: config-server
+          uri: lb://config-server
+          predicates:
+            - Path=/config/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
