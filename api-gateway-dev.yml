@@ -12,6 +12,8 @@ spring:
           uri: lb://portfolio-service
           predicates:
             - Path=/portfolio/**
+          filters:
+            - StripPrefix=1
         - id: config-server
           uri: lb://config-server
           predicates:
