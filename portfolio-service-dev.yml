@@ -22,3 +22,11 @@ spring:
 storage:
   base-url: http://${DEV_HOST:localhost}:8887/api/v1/files
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
