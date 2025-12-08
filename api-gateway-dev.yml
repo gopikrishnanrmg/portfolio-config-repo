@@ -16,10 +16,6 @@ spring:
                 - Path=/portfolio/**
               filters:
                 - StripPrefix=1
-            - id: config-server
-              uri: lb://config-server
-              predicates:
-                - Path=/config/**
           globalcors:
             cors-configurations:
               '[/**]':
@@ -39,10 +35,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,gateway,env
+        include: health,gateway
   endpoint:
     health:
       show-details: always
-    gateway:
-      access: read-only
 
