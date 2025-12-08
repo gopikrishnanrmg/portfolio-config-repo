@@ -7,37 +7,42 @@ spring:
 
   cloud:
     gateway:
-      routes:
-        - id: portfolio-service
-          uri: lb://portfolio-service
-          predicates:
-            - Path=/portfolio/**
-          filters:
-            - StripPrefix=1
-        - id: config-server
-          uri: lb://config-server
-          predicates:
-            - Path=/config/**
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins:
-              - "*"
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-            allowedHeaders:
-              - "*"
-            allowCredentials: true
-            
+      server:
+        webflux:
+          routes:
+            - id: portfolio-service
+              uri: lb://portfolio-service
+              predicates:
+                - Path=/portfolio/**
+              filters:
+                - StripPrefix=1
+            - id: config-server
+              uri: lb://config-server
+              predicates:
+                - Path=/config/**
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowed-origin-patterns:
+                  - "*"
+                allowed-methods:
+                  - GET
+                  - POST
+                  - PUT
+                  - DELETE
+                  - OPTIONS
+                allowed-headers:
+                  - "*"
+                allow-credentials: true
+
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,gateway
+        include: health,info,gateway,env
   endpoint:
     health:
       show-details: always
+    gateway:
+      access: read-only
+
