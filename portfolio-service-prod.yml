@@ -1,5 +1,5 @@
 server:
-  port: 8889 #we will replace with with 8889 once we get aws api gateway to run on 8887
+  port: 8889
 
 spring:
   application:
@@ -24,7 +24,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: prometheus,health,info
   endpoint:
     health:
       show-details: always
