@@ -1,3 +1,5 @@
+ADMIN_API_KEY: ${ADMIN_API_KEY}
+
 server:
   port: 8889
 
@@ -20,7 +22,7 @@ spring:
       enabled: true
 
 storage:
-  base-url: http://${DEV_HOST:localhost}:${server.port}/api/v1/files
+  base-url: http://${DEV_HOST}:${server.port}/api/v1/files
 
 management:
   endpoints:

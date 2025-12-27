@@ -1,3 +1,5 @@
+ADMIN_API_KEY: ${ADMIN_API_KEY}
+
 server:
   port: 8889
 
