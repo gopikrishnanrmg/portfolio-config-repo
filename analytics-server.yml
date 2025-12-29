@@ -1,0 +1,21 @@
+server:
+  port: 8886
+
+spring:
+  application:
+    name: analytics-service
+
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+      auto-index-creation: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info
+  endpoint:
+    health:
+      show-details: always
+
