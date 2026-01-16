@@ -23,6 +23,13 @@ spring:
                 - Path=/analytics/** 
               filters: 
                 - StripPrefix=1
+            
+            - id: ai-service 
+              uri: lb://ai-service
+              predicates: 
+                - Path=/ai/** 
+              filters: 
+                - StripPrefix=1            
                 
           globalcors:
             cors-configurations:
