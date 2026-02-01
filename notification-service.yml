@@ -5,6 +5,26 @@ spring:
   application:
     name: notification-service
 
+  rabbitmq:
+    host: ${RABBIT_HOST}
+    port: ${RABBIT_PORT}
+    username: ${RABBIT_USER}
+    password: ${RABBIT_PASSWORD}
+    
+telegram:
+  bot-token: ${BOT_TOKEN}
+  chat-id: ${CHAT_ID}
+
+security:
+  session-salt: ${SESSION_SALT}
+
+rabbit:
+  host: ${RABBIT_HOST}
+  port: ${RABBIT_PORT}
+  exchange: ${EXCHANGE}
+  queue: ${QUEUE}
+  routing-key: ${ROUTING_KEY} 
+
 management:
   endpoints:
     web:
