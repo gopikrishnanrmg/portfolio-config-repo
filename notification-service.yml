@@ -19,8 +19,6 @@ security:
   session-salt: ${SESSION_SALT}
 
 rabbit:
-  host: ${RABBIT_HOST}
-  port: ${RABBIT_PORT}
   exchange: ${EXCHANGE}
   queue: ${QUEUE}
   routing-key: ${ROUTING_KEY} 
