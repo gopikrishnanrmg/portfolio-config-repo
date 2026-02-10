@@ -29,8 +29,13 @@ spring:
               predicates: 
                 - Path=/ai/** 
               filters: 
-                - StripPrefix=1            
-                
+                - StripPrefix=1
+
+            - id: mcp-server
+              uri: lb://mcp-server            
+              predicates:
+                - Path=/mcp/**
+
           globalcors:
             cors-configurations:
               '[/**]':
