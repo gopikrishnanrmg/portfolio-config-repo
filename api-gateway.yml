@@ -30,6 +30,11 @@ spring:
                 - Path=/ai/** 
               filters: 
                 - StripPrefix=1
+                - name: RequestRateLimiter
+                  args:
+                    key-resolver: "#{@ipKeyResolver}"
+                    redis-rate-limiter.replenishRate: 1
+                    redis-rate-limiter.burstCapacity: 10
 
             - id: mcp-server
               uri: lb://mcp-server            
