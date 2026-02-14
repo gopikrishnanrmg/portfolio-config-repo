@@ -5,6 +5,11 @@ spring:
   application:
     name: api-gateway
 
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+
   cloud:
     gateway:
       server:
@@ -34,7 +39,7 @@ spring:
                   args:
                     key-resolver: "#{@ipKeyResolver}"
                     redis-rate-limiter.replenishRate: 1
-                    redis-rate-limiter.burstCapacity: 10
+                    redis-rate-limiter.burstCapacity: 1
 
             - id: mcp-server
               uri: lb://mcp-server            
